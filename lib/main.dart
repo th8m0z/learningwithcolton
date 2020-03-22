@@ -73,6 +73,24 @@ class _BottomNavigationState extends State<BottomNavigation> {
         child: Stack(
           overflow: Overflow.clip,
           children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                  height: 350,
+                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  child: ListView.builder(
+                      itemBuilder: (context, index) => Container(
+                            height: 100,
+                            child: AchievementTile(
+                                position: index + 1,
+                                score: 3122,
+                                name: 'Thomas Menzel',
+                                color: index == 0
+                                    ? Color(0xFFF7C10E)
+                                    : Colors.transparent),
+                          )),
+                  color: Colors.white),
+            ),
             Container(
               height: 380,
               child: ClipPath(
@@ -154,24 +172,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     ),
                     color: Colors.indigo[900]),
               ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                  height: 350,
-                  padding: EdgeInsets.symmetric(horizontal: 25),
-                  child: ListView.builder(
-                      itemBuilder: (context, index) => Container(
-                            height: 100,
-                            child: AchievementTile(
-                                position: index + 1,
-                                score: 3122,
-                                name: 'Thomas Menzel',
-                                color: index == 0
-                                    ? Color(0xFFF7C10E)
-                                    : Colors.transparent),
-                          )),
-                  color: Colors.white),
             ),
           ],
         ),
